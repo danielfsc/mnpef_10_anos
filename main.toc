@@ -1,50 +1,23 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Resistores não ôhmicos: Ensinando eletricidade a partir de uma perspectiva de eletrônica Aplicada}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Apresentação}{5}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Para o professor}{5}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Materiais utilizados}{6}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Estrutura da oficina}{6}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Primeira etapa: Introdução à eletricidade e ferramentas de medição}{6}{subsection.1.4.1}%
+\contentsline {chapter}{\numberline {1 }Resistores não ôhmicos: Ensinando eletricidade a partir de uma perspectiva de eletrônica Aplicada}{5}{chapter.1}%
+\contentsline {section}{\numberline {1 .1}Apresentação}{5}{section.1.1}%
+\contentsline {section}{\numberline {1 .2}Para o professor}{5}{section.1.2}%
+\contentsline {section}{\numberline {1 .3}Materiais utilizados}{6}{section.1.3}%
+\contentsline {section}{\numberline {1 .4}Estrutura da oficina}{6}{section.1.4}%
+\contentsline {subsection}{\numberline {1 .4.1}Primeira etapa: Introdução à eletricidade e ferramentas de medição}{6}{subsection.1.4.1}%
 \contentsline {subsubsection}{Como operar o multímetro}{6}{section*.2}%
 \contentsline {subsubsection}{ Como utilizar a protoboard }{8}{section*.3}%
-\contentsline {subsubsection}{ Montagem de circuitos simples }{9}{section*.4}%
-\contentsline {subsection}{\numberline {1.4.2}Segunda etapa: Introdução ao Arduino e à linguagem de programação}{13}{subsection.1.4.2}%
+\contentsline {subsubsection}{ Montagem de circuitos simples }{10}{section*.4}%
+\contentsline {subsection}{\numberline {1 .4.2}Segunda etapa: Introdução ao Arduino e à linguagem de programação}{13}{subsection.1.4.2}%
 \contentsline {subsubsection}{ O que é Arduino? }{13}{section*.5}%
-\contentsline {subsection}{\numberline {1.4.3} Conectando o Arduino no computador }{13}{subsection.1.4.3}%
-\contentsline {subsubsection}{Introdução à linguagem de programação}{13}{section*.6}%
+\contentsline {subsection}{\numberline {1 .4.3} Conectando o Arduino no computador }{13}{subsection.1.4.3}%
+\contentsline {subsubsection}{Introdução à linguagem de programação}{14}{section*.6}%
 \contentsline {subsubsection}{Utilizando o Ardublock para programar}{16}{section*.7}%
-\contentsline {subsection}{\numberline {1.4.4}Terceira etapa: Compreendendo e coletando os dados do arduino}{17}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1 .4.4}Terceira etapa: Compreendendo e coletando os dados do arduino}{17}{subsection.1.4.4}%
 \contentsline {subsubsection}{ Compreendendo o sistema divisor de tensão e fazendo o tratamento dos dados obtidos com o Arduino }{17}{section*.8}%
-\contentsline {subsection}{\numberline {1.4.5}Quarta etapa: Construindo uma estação meteorológica com os resistores utilizados na oficina}{18}{subsection.1.4.5}%
+\contentsline {subsection}{\numberline {1 .4.5}Quarta etapa: Construindo uma estação meteorológica com os resistores utilizados na oficina}{18}{subsection.1.4.5}%
 \contentsline {subsubsection}{Construindo uma estação meteorológica com os resistores utilizados na oficina}{18}{section*.9}%
-\contentsline {chapter}{\numberline {2}Introduction}{23}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Motivation}{23}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Objective}{23}{section.2.2}%
-\contentsline {section}{\numberline {2.3}A bit of context}{24}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}References}{24}{subsection.2.3.1}%
-\contentsline {chapter}{\numberline {3}Discovering what to do...}{25}{chapter.3}%
-\contentsline {section}{\numberline {3.1}First ideas}{25}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Superpixel segmentation}{26}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}PCA}{26}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Hypothesis}{27}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Topics you should review}{28}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Downloading}{29}{subsection.3.2.2}%
-\contentsline {chapter}{\numberline {4}Understand your data}{33}{chapter.4}%
-\contentsline {section}{\numberline {4.1}What is an image?}{33}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}FITS files}{33}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}WFC3 ERS M83 Data Products}{34}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Preprocessing your data}{34}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Software available}{37}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Experimenting}{39}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Methods Selected}{39}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}ESOM, Evolving Self Organizing Maps}{39}{subsection.5.1.1}%
-\contentsline {subsubsection}{Expected Results}{40}{section*.10}%
-\contentsline {subsubsection}{Failed and still running tests: What no to do and what is still running}{40}{section*.11}%
-\contentsline {subsubsection}{The big and small re-projected data cube}{42}{section*.12}%
-\contentsline {subsection}{\numberline {5.1.2}CSOM}{45}{subsection.5.1.2}%
-\contentsline {subsubsection}{Expected Results}{45}{section*.13}%
-\contentsline {subsubsection}{Tests}{45}{section*.14}%
-\contentsline {section}{\numberline {5.2}Further work}{45}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Some interesting ideas}{45}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Links you should check out}{45}{subsection.5.2.2}%
+\contentsline {chapter}{\numberline {2 }Introduction}{23}{chapter.2}%
+\contentsline {section}{\numberline {2 .1}Motivation}{23}{section.2.1}%
+\contentsline {subsection}{\numberline {2 .1.1}Links you should check out}{23}{subsection.2.1.1}%
 \contentsfinish 
