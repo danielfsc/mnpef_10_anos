@@ -1,0 +1,610 @@
+\chapterimage{cap_bagattoli}
+\chapter{Resistores não ôhmicos: Ensinando eletricidade a partir de uma perspectiva de eletrônica Aplicada}
+
+\section{Apresentação}
+Este roteiro faz parte do produto educacional que foi desenvolvido no formato de oficina para ensinar conceitos de eletricidade. É composto por quatro etapas. Cada etapa tem duração média de 4 horas e apresenta conceitos teóricos e atividades práticas sobre eletricidade, com ênfase nos resistores não-ôhmicos. O objetivo desse roteiro é auxiliar o professor na aplicação da oficina, com o intuito de facilitar a compreensão dos conceitos físicos pelos estudantes utilizando métodos não tradicionais de ensino, através da experimentação, coleta e análise de dados utilizando recursos tecnológicos.
+
+No início de cada etapa têm-se uma sugestão de tempo (divididos em teoria e prática), os objetivos, materiais utilizados e as atividades a serem desenvolvidas. Ao decorrer da oficina, espera-se que o aluno faça a apropriação dos conceitos físicos que versam sobre o tema e aplique-os na construção de uma estação meteorológica.
+
+
+\section{Para o professor}
+Para o desenvolvimento da oficina, não é pré-requisito um conhecimento avançado em eletrônica e programação, porém, é de extrema importância que conheça previamente os recursos tecnológicos que serão utilizados. Neste roteiro você terá uma pequena introdução de cada ferramenta tecnológica que será utilizada, com exemplos e atividades práticas. 
+	
+Cada etapa possui um conjunto de atividades a serem desenvolvidas, sendo:
+
+\begin{itemize}
+    \item Primeira etapa: contém informações e atividades sobre a utilização das ferramentas de medição e prototipagem e uma abordagem teórica e prática sobre circuitos simples. 
+    \item Segunda etapa: é específica para a configuração e programação do Arduino, que será utilizado como recurso para a captação dos dados obtidos pelos sensores. 
+    \item Terceira etapa: é feito o estudo do circuito divisor de tensão, que será utilizado na montagem do circuito com LDR e termistor. Nessa etapa será feita a calibragem dos sensores e o tratamento das informações obtidas por eles. 
+    \item Quarta etapa: será construída uma estação meteorológica utilizando as ferramentas estudadas durante a oficina.
+\end{itemize}
+
+\section{Materiais utilizados}
+Os kits para a aplicação da oficina serão compostos de:
+\begin{itemize}
+    \item 10 kits de prototipagem, cada kit contendo:
+    \begin{itemize}
+        \item 1 placa de ensaio (protoboard)
+        \item 1 placa de prototipagem (Arduino)
+        \item 1 cabo USB
+        \item 1 resistor LDR
+        \item 1 termistor PTC
+        \item 1 termistor NTC
+        \item 1 LED
+        \item 1 motor elétrico DC – 5V
+    \end{itemize}
+    \item 10 multímetros
+    \item 10 computadores   
+\end{itemize}
+
+
+\section{Estrutura da oficina}
+\subsection{Primeira etapa: Introdução à eletricidade e ferramentas de medição}
+
+\subsubsection{Como operar o multímetro}
+
+
+\textbf{Tempo estimado:} 60minutos divididos entre  20 minutos de teoria e 40 minutos de prática. 
+
+
+\textbf{Objetivo:} Compreender o funcionamento do multímetro e como utilizá-lo para medir grandezas elétricas.
+
+
+\textbf{Materiais utilizados:} Bateria, lâmpadas 12 V e resistores.
+
+
+\textbf{Atividade a ser desenvolvida: }
+
+\Large
+\textbf{Teoria: }
+
+\normalsize
+\begin{itemize}
+    \item Fazer uma breve introdução sobre as 3 partes principais do multímetro (Display, chave seletora e conectores das pontas de prova nos bornes).
+    \item Explicar como utilizar as escalas para medir tensão, corrente e resistência, diferenciando tensão com corrente contínua e alternada.
+    \item Explicar como fazer a leitura das grandezas físicas utilizando os múltiplos e submúltiplos e interpretando os valores que aparecem no display durante as medições.
+    \item Explicar como realizar teste de continuidade utilizando o multímetro.
+    \item Explicar como se obter o valor da resistência utilizando código de cores do resistor.
+\end{itemize}
+
+\Large
+\textbf{Prática:}
+
+\normalsize
+\begin{itemize}
+    \item Realizar medidas de tensão (ligando o multímetro em paralelo) em corrente contínua, utilizando baterias, selecionando a escala correta e interpretando os valores obtidos.
+    
+    \item Realizar medidas de corrente elétrica (ligando o multímetro em série com o circuito) utilizando baterias, lâmpadas e resistores.
+    \item Realizar medidas de tensão em corrente alternada utilizando as tomadas da sala.
+    \item Realizar medidas de resistência elétrica, confrontando os valores obtidos utilizando código de cores com os valores obtidos no multímetro, verificando a faixa de tolerância de cada resistor.
+    
+\end{itemize}
+
+\Large
+\textbf{Atividades práticas:}
+
+\normalsize
+
+\textbf{Medindo tensão corrente contínua:} Distribua as baterias para os alunos e com a chave seletora do multímetro na posição 20V DC (para baterias ou fontes até 20V) coloque a ponta de prova vermelha no polo positivo da bateria e a preta no polo negativo (Figura \ref{fig:bagattoli_1}).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/1.jpg}
+    \caption{Medindo a tensão de uma bateria de 3V em corrente contínua.}
+    \label{fig:bagattoli_1}
+\end{figure}
+
+\textbf{Medindo tensão corrente alternada:} Com a chave seletora do multímetro na posição 600V AC, coloque a ponta de prova vermelha em um dos orifícios da tomada e a preta no outro (Figura \ref{fig:bagattoli_2}). (Orienta-se que, por questões de segurança, esta parte da atividade seja feita somente pelo professor).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/2.jpg}
+    \caption{Medindo tensão de uma rede 220V em corrente alternada.}
+    \label{fig:bagattoli_2}
+\end{figure}
+
+
+\textbf{Medindo corrente contínua:} Utilizando um resistor de $320\Omega$ e uma fonte (utilizado a saída de$5V$ do Arduino) associe o amperímetro em série com o multímetro, ligando no $5V$ e {\bf GND} do Arduino (Figura \ref{fig:bagattoli_3}). Selecione a escala de $20mA$ (se utilizar outro resistor ou a saída de $3,3V$ certifique-se que a corrente que irá passar não supera $20mA$, caso contrário selecione outra escala.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/3.png}
+    \caption{Medindo corrente contínua com o multímetro.}
+    \label{fig:bagattoli_3}
+\end{figure}
+
+
+{\bf Medindo resistência elétrica:} Distribua para cada aluno um conjunto de resistores de valores variados e peça para que calculem o valor da resistência utilizando a tabela de resistores (Figura \ref{fig:bagattoli_4}). Considere que a primeira e a segunda faixa são os dígitos significativos, a terceira faixa é o fator de multiplicação e a quarta faixa é a tolerância referente ao valor medido. Por exemplo, um resistor que possui as faixas marrom, vermelho, vermelho e ouro, possui uma resistência de $1200 \Omega$ com uma tolerância de $\pm 60 \Omega$.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/4.png}
+    \caption{Referência de cores para cálculo da resistência de resistores.}
+    \label{fig:bagattoli_4}
+\end{figure}
+
+
+Após calcularem os valores teóricos das resistências, selecione no multímetro a função ohmímetro com a chave seletora na escala que contempla o valor teórico. Para o resistor de faixas marrom, vermelho, vermelho e ouro, a escala selecionada deve ser de $2000 \Omega$ (Figura \ref{fig:bagattoli_5}), pois de acordo com as escalas que o multímetro apresenta ($200$, $2K$, $20K$, $200K$ e $2000K$) essa é a que mais se aproxima.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/5.jpg}
+    \caption{Chave seletora em $2000\Omega$.}
+    \label{fig:bagattoli_5}
+\end{figure}
+
+\subsubsection{
+Como utilizar a protoboard
+}
+
+
+{\bf Tempo estimado:} 60 minutos divididos entre 15 minutos de teoria e 45 minutos de prática.
+
+
+
+{\bf Objetivo:} Compreender o funcionamento da protoboard utilizando o multímetro para identificar as linhas de alimentação e como funcionam colunas para montagem dos componentes eletrônicos.
+
+{\bf Materiais utilizados:} Multímetro, protoboard, bateria, LEDs e resistores.
+
+
+\textbf{Atividade a ser desenvolvida: }
+
+\Large
+\textbf{Teoria: }
+
+\normalsize
+\begin{itemize}
+    
+    \item Fazer uma breve introdução sobre a importância da protoboard nos projetos eletrônicos. Com ela é possível montar, desenvolver e testar circuitos eletrônicos sem a necessidade de soldar os componentes.
+    
+    \item  Mostrar o funcionamento da protoboard, explicando as áreas que compõe os barramentos de alimentação, montagem de circuitos integrados e montagem de componentes.
+    \item  Explicar como são montados os circuitos utilizando o multímetro para identificar como são interligados os barramentos.
+    \item Mostrar os modelos de protoboards existentes no mercado.
+    
+\end{itemize}
+
+
+\Large
+\textbf{Prática: }
+
+\normalsize
+\begin{itemize}
+    \item Identificar como os barramentos estão interligados utilizando o multímetro.
+    \item Medir tensão e corrente elétrica com uma bateria conectada na protoboard.
+    \item Medir a resistência elétrica de resistores conectados na protoboard.
+
+\end{itemize}
+    
+{\Large
+\textbf{Atividades práticas:}
+}
+
+	
+Distribua as protoboards e os multímetros para os alunos e peça para que coloquem a chave seletora na posição continuidade e, com as pontas de prova testem dois a dois quais “furos” estão interligados (Figura \ref{fig:bagattoli_6}).
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/6.jpg}
+    \caption{Identificando como os barramentos estão interligados.}
+    \label{fig:bagattoli_6}
+\end{figure}
+
+
+Peça para os alunos conectarem alguns resistores na protoboard e com o multímetro, determine suas resistências (Figura \ref{fig:bagattoli_7}). Não oriente como devem colocar os resistores e verifique se compreenderam o funcionamento da matriz de contato da protoboard.
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/7.png}
+    \caption{Medindo resistência elétrica.}
+    \label{fig:bagattoli_7}
+\end{figure}
+
+\subsubsection{
+Montagem de circuitos simples
+}
+
+{\bf Tempo estimado:} 120 minutos divididos entre 60 minutos de teoria e 60 minutos de prática.
+
+
+{\bf Objetivo:} Compreender o funcionamento de circuitos simples e como podem ser conectados em uma protoboard. Explicar o funcionamento de circuitos utilizando uma bateria e um resistor, circuitos com amperímetro e voltímetro e circuitos em série e paralelo.
+
+
+{\bf Materiais utilizados:} Multímetro, protoboard, bateria, LEDs e resistores.
+
+
+{\bf Atividade a ser desenvolvida: }
+
+{\Large
+Teoria:
+}
+
+\begin{itemize}
+    
+    
+    \item Explicar as características dos circuitos simples e como conecta-los utilizando a protoboard.
+    \item Explicar as características das associações de resistores em série e em paralelo em um circuito.
+    \item Explicar como é conectado o voltímetro (em paralelo) e o amperímetro (em série a um circuito).
+    \item Explicar que o LED é polarizado e que só deverá acender se o terminal positivo de LED estiver conectado com o positivo da bateria e o terminal negativo com o negativo da bateria.
+    \item Explicar como calcular o valor do resistor para ser associado ao LED no circuito para liga-lo sem queimar.
+\end{itemize}
+    
+{\Large
+Prática:
+}
+
+\begin{itemize}
+    
+    \item Montar um circuito simples utilizando uma bateria, um LED e um resistor na protoboard. Esse resistor deve ser determinado a partir das especificações do LED escolhido.
+    \item Montar um circuito em série com dois resistores na protoboard e, com o auxílio do multímetro, demonstrar que a resistência equivalente na associação em série é igual a soma das resistências de cada resistor.
+    \item Montar um circuito em paralelo com dois resistores na protoboard e, com o auxílio do multímetro, demonstrar que a resistência equivalente é igual à soma dos inversos da resistência de cada resistor associado.
+    \item Montar um circuito utilizando um voltímetro e um amperímetro associado, medindo a tensão e a corrente do circuito simples.
+\end{itemize}
+
+
+
+{\bf Atividades práticas:}
+
+
+Distribua para cada aluno um conjunto com uma protoboard, LEDs de cores variadas, uma bateria, um conjunto de resistores com resistências variadas e um multímetro. Peça que eles montem um circuito simples, composto de uma bateria (ou utilizar a saída 5V do Arduino), um resistor e um LED (Figura \ref{fig:bagattoli_8}). Eles deverão calcular o valor da resistência do resistor que será associado baseado nas características da fonte e do LED. Se necessário, peça aos alunos que façam um esboço do circuito, para depois montá-lo definitivamente na protoboard.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/8.png}
+    \caption{Circuito simples com um LED, um resistor e uma bateria.}
+    \label{fig:bagattoli_8}
+\end{figure}
+
+Peça para que os alunos invertam a ordem da montagem (Figura \ref{fig:bagattoli_9}), verifiquem o que acontece e tentem explicar o fenômeno.
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/9.png}
+    \caption{Circuito simples com um LED, um resistor e uma bateria invertidos.}
+    \label{fig:bagattoli_9}
+\end{figure}
+
+Após terminar a montagem do circuito simples, prossiga com a montagem das associações em série e paralelo (Figura \ref{fig:bagattoli_10}), fazendo o esboço (se necessário), calculando a resistência equivalente, medindo e comparando os resultados. Para que os alunos não precisem calcular a resistência equivalente, pode ser utilizado o ElectroDroid (disponível em \url{https://play.google.com/store/apps/details?id=it.android.demi.elettronica&hl=pt_BR}) (Figura \ref{fig:bagattoli_11}).
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/10.png}
+    \caption{ Exemplos de associação em série (a), paralelo (b) e mista (c).}
+    \label{fig:bagattoli_10}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/11.png}
+    \caption{ Cálculo da resistência equivalente através do código de cores\\
+Fonte:\url{https://play.google.com/store/apps/details?id=it.android.demi.elettronica&hl=pt_BR}.}
+    \label{fig:bagattoli_11}
+\end{figure}
+
+
+Após medir a resistência equivalente em cada associação, os alunos deverão montar um circuito com associações em série, paralelo ou mista (Figura 15) com o multímetro associado em paralelo, para medir tensão, e em série, para medir a corrente elétrica.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/12.jpg}
+    \caption{ Multímetro associado em paralelo e em série no circuito, respectivamente.}
+    \label{fig:bagattoli_12}
+\end{figure}
+
+
+\subsection{Segunda etapa: Introdução ao Arduino e à linguagem de programação}
+
+\subsubsection{
+O que é Arduino?
+}
+
+{\bf Tempo estimado:} 30 minutos de teoria.
+\\
+{\bf Objetivo:} Conhecer um pouco sobre a origem do Arduino e compreender suas funcionalidades. 
+\\
+{\bf Materiais utilizados:} Placa Arduino.
+
+
+{\bf Atividade a ser desenvolvida:}
+
+{\Large
+Teoria:
+}
+
+\begin{itemize}
+    \item Fazer uma breve introdução sobre o que é um microcontrolador embarcado e sua utilização em projetos de automação.
+    \item Explicar para que servem os conectores de alimentação, dando ênfase aos que serão utilizados inicialmente no projeto (3,3V, 5V, GND).
+    \item Explicar para que servem as portas de entrada e saída, digital e analógico, destacando a diferença entre uma porta digital e uma porta analógica.
+\end{itemize}
+
+\subsection{
+Conectando o Arduino no computador
+}
+
+{\bf Tempo estimado:} 30 minutos divididos entre 15 minutos de teoria e 15 minutos de prática.
+\\
+{\bf Objetivo:} Fazer a conexão da placa Arduino com o computador e realizar as configurações iniciais.
+\\
+{\bf Materiais utilizados:} Arduino, cabo USB.
+\\
+{\bf Atividade a ser desenvolvida:}
+\\
+{\Large
+Teoria:
+}
+
+\begin{itemize}
+    \item Explicar como é feita a conexão e o envio de dados do computador para o Arduino, através do cabo USB.
+\end{itemize}
+
+{\Large
+Prática:
+}
+
+\begin{itemize}
+    \item    Conectar a placa Arduino via USB no computador e fazer as configurações iniciais (selecionar a placa e a porta de comunicação na IDE do Arduino).
+\end{itemize}
+
+\subsubsection{Introdução à linguagem de programação}
+
+
+{ Tempo estimado: } 60 minutos de atividades práticas.
+
+
+
+{\bf Objetivo:} Compreender conceitos básicos de linguagem de programação.
+\\
+
+{\bf Materiais utilizados:} Arduino, computador.
+\\
+
+{\bf Atividade a ser desenvolvida: }
+\\
+{\Large
+Prática:
+}
+
+\begin{itemize}
+    \item     Montar um circuito utilizando um LED conectado em uma porta digital para explicar a utilização dos comandos “void setup” e “void loop”. Mostrar que o LED conectado em um pino digital só poderá assumir dois valores lógicos, HIGH (5V) ou LOW (0V). Exemplo de programação:
+\end{itemize}
+
+\begin{lstlisting}[language=C++]
+void setup() {
+  pinMode (13,OUTPUT);
+}
+ 
+void loop() {
+  digitalWrite (13,HIGH);
+  delay (2000);
+  digitalWrite (13,LOW);
+  delay (2000);
+}
+\end{lstlisting}
+
+\begin{itemize}
+    
+    \item {\bf void setup( )} é uma função e é executada uma vez assim que o arduino é ligado. 
+    \item {\bf void loop( )} também é uma função que é executada, como diz o próprio nome, em “loop”, enquanto o Arduino estiver ligado.
+    \item O comando {\bf pinMode (13, OUTPUT)} define o pino digital 13 do Arduino como um pino de saída (output). É o pino em que o LED está ligado.
+    \item O comando {\bf digitalWrite(13,HIGH)} liga o LED.
+    \item O comando {\bf digitalWrite(13,LOW)} desliga o LED.
+    \item O comando {\bf delay(2000)} faz o Arduino esperar dois segundos antes de executar o próximo comando.
+\end{itemize}
+
+{\bf Atividades práticas:}
+
+Monte um circuito com um resistor e um LED (Figura \ref{fig:bagattoli_13}), utilizando a porta digital 11. Importante observar que o LED conectado em uma porta digital só poderá assumir um de dois valores lógicos possíveis, ligado (5V) ou desligado (0V).
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/13.png}
+    \caption{ Circuito com um resistor ($220\Omega$) e um LED.}
+    \label{fig:bagattoli_13}
+\end{figure}
+
+
+Abrindo a IDE do Arduino, copie e cole o exemplo de programação:
+\begin{lstlisting}[language=C++]
+    void setup() {
+        pinMode (11,OUTPUT);
+        }
+        
+        void loop() {
+            digitalWrite (11,HIGH);
+            delay (2000);
+            digitalWrite (11,LOW);
+            delay (2000);
+            }
+        \end{lstlisting}
+        
+Para carregar o código para a placa, clique na seta (Figura \ref{fig:bagattoli_14}).
+        
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/14.png}
+            \caption{ Carregando o código para a placa Arduino.}
+            \label{fig:bagattoli_14}
+        \end{figure}
+
+\begin{itemize}
+    \item {\bf void setup( )} é um método e é executado uma vez assim que o arduino é ligado. 
+    \item {\bf void loop( )} também é um método que é executado, como diz o próprio nome, em loop enquanto o Arduino estiver ligado.O comando {\bf pinMode (11, OUTPUT)} define o pino digital 11 do Arduino como um pino de saída. É o pino em que o LED está ligado.
+    \item O comando {\bf digitalWrite(11,HIGH)} liga o LED.
+    \item O comando {\bf digitalWrite(11,LOW)} desliga o LED.
+\end{itemize}
+
+O comando {\bf delay(2000)} faz o Arduino esperar dois segundos antes de executar o próximo comando. Peça para os alunos alterar os valores do delay (3000, 100, 50, ...), mudar o LED de porta, acrescentar LEDs utilizando o mesmo resistor e façam alterações na programação.
+
+\subsubsection{Utilizando o Ardublock para programar}
+
+
+{\bf Tempo estimado:} 120 minutos de atividades práticas.
+
+
+{\bf Objetivo:} Compreender conceitos básicos de linguagem de programação, utilizando o Ardublock.
+
+
+{\bf Materiais utilizados:} Arduino, computador.
+
+
+
+{\bf Atividade a ser desenvolvida: }
+
+{\Large
+Prática:
+}
+\begin{itemize}
+    \item     Montar um circuito utilizando um LED conectado em uma porta digital para explicar a utilização dos comandos (blocos) no Ardublock (Figura \ref{fig:bagattoli_15}).
+\end{itemize}
+    
+\begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/15.png}
+            \caption{ Estrutura de programação utilizando o Ardublock.}
+            \label{fig:bagattoli_15}
+        \end{figure}
+
+        \begin{itemize}
+            \item Sempre faça: é um método que é executado em “loop” enquanto o Arduino estiver ligado.
+            \item O bloco seta pino digital (D13,HIGH) liga o LED.
+            \item O bloco delay MILLIS milissegundos (2000) faz o Arduino esperar dois mil milissegundos (ou 2 segundos) antes de executar o próximo comando.
+            \item O bloco seta pino digital (D13,LOW) desliga o LED.
+        \end{itemize}
+
+{\bf Atividades práticas:}
+
+Monte um circuito com um resistor e um LED (Figura \ref{fig:bagattoli_15}), utilizando a porta digital 11. Para acender o LED, utilizaremos uma estrutura básica de programação no Ardublock, seguindo a mesma lógica de programação já utilizada para este exemplo. Para facilitar o uso, os blocos possuem as mesmas cores do menu. Por exemplo, o bloco “sempre faça” tem a mesma cor da opção “controle” (podem ocorrer algumas variações dependendo da versão utilizada). Para fazer o upload do programa para a placa, clique em “enviar para o Arduino”. É importante observar que ao carregar a programação feita no Ardublock para o Arduino, as linhas de comando do respectivo código aparecem na IDE e serve como objeto de estudo e pode inclusive ser alterado.
+
+
+Peça para os alunos alterar os valores do delay (3000, 100, 50, ...), mudar o LED de porta, acrescentar LEDs utilizando o mesmo resistor e façam alterações na programação.
+
+% TERCEIRA ETAPA
+\subsection{Terceira etapa: Compreendendo e coletando os dados do arduino}
+
+\subsubsection{
+Compreendendo o sistema divisor de tensão e fazendo o tratamento dos dados obtidos com o Arduino
+}
+
+{\bf Tempo estimado:} 240 minutos divididos entre 60 minutos de teoria e 180 minutos de prática.
+
+
+{\bf Objetivo:} Compreender o funcionamento do divisor de tensão e utilizá-lo para fazer a leitura dos resistores utilizados na oficina, fazendo o tratamento dos dados obtidos.
+
+
+{\bf Materiais utilizados:} Arduino, computador, LDR, LED, protoboard, resistores e termistores PTC/NTC.
+
+
+{\bf Atividade a ser desenvolvida: }
+
+{\Large
+Teoria:
+}
+\begin{itemize}
+    \item  Explicar como funciona um sistema divisor de tensão através da associação de dois resistores em série, com o objetivo de se obter uma determinada fração da tensão. Mostrar que a tensão nos terminais de cada resistor é proporcional a sua resistência elétrica e que pode ser calculado utilizando a seguinte relação..
+\end{itemize}
+\begin{equation}
+    U_{\text{saída}} = \frac{R2}{R1+R2} U_{\text{entrada}}
+    \nonumber
+\end{equation}
+
+
+
+{\Large
+Prática:}
+
+\begin{itemize}
+    
+    \item Montar um sistema divisor de tensão utilizando um LDR e um resistor de $10k\Omega$.
+    \item Montar um sistema divisor de tensão utilizando um termistor e um resistor de $10k\Omega$, utilizando o exemplo acima.
+    \item Para fazer a leitura dos dados captados pelo LDR/Termistor (Figura \ref{fig:bagattoli_16}), utilize o “monitor serial”.
+    
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/16.png}
+        \caption{ Estrutura de programação para fazer a leitura dos dados pelo monitor serial.}
+        \label{fig:bagattoli_16}
+    \end{figure}
+    
+    \item Calibrar os sensores (Lux, °C), encontrando uma equação de transformação dos dados obtidos nos sensores para as unidades 
+\end{itemize}
+    
+
+{\bf Atividades práticas:}
+
+
+Monte um sistema divisor de tensão utilizando um LDR e um resistor de $10k\Omega$ (Figura \ref{fig:bagattoli_17}). Com o multímetro, mostre aos alunos que o valor total da tensão (5V) é igual a soma da tensão de cada resistor. Monte um sistema divisor de tensão utilizando também um termistor.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/17.png}
+        \caption{ Sistema divisor de tensão com um LDR e um resistor de $10k\Omega$.}
+        \label{fig:bagattoli_17}
+    \end{figure}
+    
+Para fazer a leitura dos dados obtidos no LDR, utilizaremos o monitor serial do Arduino, que se encontra no canto superior direito da IDE (Figura \ref{fig:bagattoli_18}).
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/18.png}
+        \caption{ Localização do monitor serial do Arduino.}
+        \label{fig:bagattoli_18}
+    \end{figure}
+    
+
+No monitor serial aparecerão dados obtidos pelos sensores em uma escala de 0 a 1023 sendo 0 (0V) e 1023 (5V) (Figura \ref{fig:bagattoli_19}). Qualquer valor entre 0 e 1023 terá um valor proporcional entre 0V e 5V. Para fazer o tratamento desses dados será necessário calibrar os sensores e encontrar equações de conversão para as grandezas físicas em questão (temperatura, luminosidade, etc.).
+ \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/19.png}
+        \caption{ Dados obtidos no monitor serial.}
+        \label{fig:bagattoli_19}
+    \end{figure}
+    
+    
+Faça a programação no Ardublock, utilizando a função “imprime” (Figura 24) e junto com o pino analógico A0 (de acordo com o exemplo de montagem).
+
+\begin{figure}[h!]
+           \centering
+           \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/20.png}
+           \caption{ Exemplo de programação utilizando Ardublock.}
+           \label{fig:bagattoli_20}
+       \end{figure}
+
+
+\subsection{Quarta etapa: Construindo uma estação meteorológica com os resistores utilizados na oficina}
+
+\subsubsection{Construindo uma estação meteorológica com os resistores utilizados na oficina}
+
+{\bf Tempo estimado:} 240 minutos de atividades práticas.
+
+
+{\bf Objetivo:} Montar uma estação meteorológica em equipe, aplicando as habilidades desenvolvidas durante a oficina.
+
+
+{\bf Materiais utilizados:} Arduino, computador, LDR, LED, multímetro, motor DC – 5V, protoboard, resistores e termistores PTC/NTC.
+
+{\bf
+Atividade a ser desenvolvida: 
+}
+
+Os alunos deverão construir uma estação meteorológica com os sensores utilizados e calibrados na oficina. Durante as etapas, os grupos já montaram individualmente um sensor de luminosidade e um sensor de temperatura, encontrando suas equações características. Podem utilizar o motor 5V DC com um circuito divisor de tensão para construir um anemômetro. O desafio será montar e programar todos os sensores em conjunto (Figura \ref{fig:bagattoli_21}), de moto que os dados possam ser observados pelo monitor serial e, se disponível, em um LCD. Para organizar os circuitos, pode-se utilizar uma caixa para disjuntores, que possui uma abertura para fixação do LCD (Figura \ref{fig:bagattoli_22}).
+
+\begin{figure}[h!]
+           \centering
+           \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/21.jpg}
+           \caption{ Sensor de luz, temperatura e velocidade.}
+           \label{fig:bagattoli_21}
+       \end{figure}
+\begin{figure}[h!]
+           \centering
+           \includegraphics[width=0.65\textwidth]{capitulos/bagatolli_girardi/figuras/22.jpg}
+           \caption{ Caixa para disjuntor.}
+           \label{fig:bagattoli_22}
+       \end{figure}
+
+
+Nesse momento, espera-se que os alunos percebam a necessidade de se implementar outros sensores, como por exemplo: sensor de nível d’água, sensor de umidade, display LCD entre outros.
+
